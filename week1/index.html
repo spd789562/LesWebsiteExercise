@@ -1,0 +1,170 @@
+﻿<!doctype html>
+<html xmlns:ice="http://ns.adobe.com/incontextediting">
+<head>
+<meta charset="utf-8">
+<title>template</title>
+<link href="css.css" rel="stylesheet"></link>
+<script type="text/javascript" src="jquery-1.6.4.min.js" charset="utf-8"></script>
+<script>
+	$(() => {
+		var $nav = $('nav'),
+		    $header = $('header'),
+		    $banner = $('.banner'),
+		    $topbaritem = $('.topBarItem'),
+		    $movebar = $('.barbg')[0],
+		    $p1 = $('.p1'),
+		    $p2 = $('.p2'),
+		    $p3 = $('.p3'),
+			$p1main = $('.p1main'),
+			$pitem = $('.pitem');
+		$topbaritem.live('click',function(){
+			$movebar.style.right = 120 * (Number(this.dataset.pos) - 1) + "px";
+			switch(this.dataset.text){
+				case "1":
+					$('html, body').animate({scrollTop: $banner[0].offsetTop},1000);return
+				case "2":
+					$('html, body').animate({scrollTop: $p1[0].offsetTop},1000);return
+				case "3":
+					$('html, body').animate({scrollTop: $p2[0].offsetTop-100},1000);return
+				case "4":
+					$('html, body').animate({scrollTop: $p3[0].offsetTop},1000);return
+			}
+			$nav.addClass('show');
+		});
+		$('.scrollDown').live('click',function(){
+			console.log('87');
+			$('html, body').animate({scrollTop: $banner[0].offsetTop - 100},1000);
+		});
+		$('.gotop').live('click',function(){
+			$('html, body').animate({scrollTop: 0},1000);
+		})
+		document.addEventListener('scroll',function(e){
+			window.scrollY >= $banner[0].offsetTop -150 ? $nav.addClass('show'):$nav.removeClass('show');;
+			if(false){
+				 
+			}else if(window.scrollY >= $p3[0].offsetTop - 500){
+				$('.p3 img').addClass('fade-start');
+				$movebar.style.right = "0px";
+			}else if(window.scrollY >= $p2[0].offsetTop - 300){
+				$('.pitem').each(function(index){
+					$(this).delay(index*500).queue(function(){
+						$(this).addClass('fade-start');
+						$('.p2 .span_9 .row').eq(index).delay(200).addClass('fade-start');
+					});
+				})
+				$movebar.style.right = "120px";
+			}else if(window.scrollY >= $p1[0].offsetTop - 100){
+				$p1main.addClass('fade-start');
+				$movebar.style.right = "240px";
+			}else if(window.scrollY >= $banner[0].offsetTop -100){
+				$banner.addClass('fade-start');
+				$movebar.style.right = "360px";
+			}else{
+				
+			}
+		})
+	})
+</script>
+</head>
+<body>
+	<nav>
+		<ul class="topBarList">
+			<li class="topBarLogo"><a href="#">　</a></li>
+			<li class="topBarItem" data-pos="1" data-text="4"><a href="#">未來</a></li>
+			<li class="topBarItem" data-pos="2" data-text="3"><a href="#">創新</a></li>
+			<li class="topBarItem" data-pos="3" data-text="2"><a href="#">發想</a></li>
+			<li class="topBarItem" data-pos="4" data-text="1"><a href="#">探索</a></li>
+			<div class="barbg" style="right:360px;"></div>
+		</ul>
+	</nav>
+<header>
+  <h1>高科技與社會</h1>
+		<button class="scrollDown">Scroll Down</button>
+        <img class="obj1" src="./images/obj5.png">
+        <img class="obj2" src="./images/obj4.png">
+        <img class="obj3" src="./images/obj1.png">
+	</header>
+	<section class="banner">
+		<h2>探索科技</h2>
+        <p class="contentText">看看現在的科技<br>想想幾年前還再用開闔式的手機?<br>科技是成長的如此快<br>或許再過幾年回頭看<br>智慧型手機可能如同智障一樣<br></p>
+        <div class="row">
+        	<div class="leftside">
+            	<img src="./images/now.jpg"/>
+            </div>
+        	<div class="rightside">
+            	<img src="./images/feature.jpg"/>    
+            </div>
+            <div class="linebar">
+            	<span>現<br>代</span>
+                <span>未<br>來</span>
+            </div>
+        </div>
+	    <div class="skewbanner"></div>
+	</section>
+	<section class="p1">
+    	<div class="p1main contentText fade-right">  
+        	<h2>思考科技</h2>   
+        	<span>當科技越來越先進</span><br>
+            <span class="">是否該深思熟慮一番</span><br>
+            <span class="">科技對我們的影響?</span><br>
+            <span class="">科技會不會讓我們怠惰?</span><br>
+            <span class="">會不會讓我們失去些東西?</span>
+        </div>
+	</section>
+	<section class="p2">
+		<h2>創新科技</h2>
+		<div class="p2main">
+			<div class="photolist contentText">	
+                <div class="span_12">
+                	<div class="span_3 pitem fade-right">
+                        <img src="./images/item.jpg" width="100%" height="100%"/>
+                        <h4>3D列印</h4>
+                        <p>電腦建構3D模型，列印出來</p>   
+                    </div>
+                    <div class="span_9">
+                    	<div class="row fade-right">隨著3D列印越來越火紅，許多不同材質的列印機也漸漸出現，像是列印金屬、木頭等。各種印應技術也隨之出現，如醫學用的模型、汽車外殼、甚至說是飛機機翼，以往模型不是以手刻就是用灌模的方式建置模型，現在只需要在電腦上繪圖，輸出檔案就可以列印出來，若3D技術更加成熟，必定可以省下大量成本。</div>
+                    </div>
+                </div>
+                <div class="span_12">
+	                <div class="span_9">
+                    	<div class="row fade-right">大家肯定看過「看見台灣」這部電影，若也想自己拍出這樣的影片呢？那空拍機可以說是你的不二選擇，它不僅輕、便宜自由度非還非常高。一個好的空拍機會有各式各樣的配備，從基礎的攝影機、飛行用具到定位所需要的GPS，還有幫助飛行的飛行控制器，還有持久力夠高的電池，在選購空拍機前要問清楚才不會吃悶虧。</div>
+                    </div> 
+                	<div class="span_3 pitem fade-right">
+                        <img src="./images/item2.jpg" width="100%" height="100%"/>
+                        <h4>空拍機</h4>
+                        <p>號稱會飛的相機，自由度高</p>  
+                    </div>                
+                </div>
+                <div class="span_12">
+	                <div class="span_3 pitem fade-right">
+                        <img src="./images/item3.jpg" width="100%" height="100%"/>
+                        <h4>VR虛擬實境</h4>
+                        <p>讓人有如置身於虛擬環境內</p>
+                    </div>
+                    <div class="span_9">
+                    	<div class="row contenttext fade-right">在電腦等物品發明出來後，人們開始想把自己放進虛擬世界內，於是VR的雛型概念就出現了，各大廠商搶著要爭奪這個商機。在VR出現之後，許多軟體與遊戲也跟著這波潮流推出新產品，不僅是遊戲，連同影片、電影等也開始使用360度攝影的技術，讓VR使用者可以體驗身在影片中的樂趣。</div>
+                    </div>       
+            	</div>
+			</div>
+		</div>
+	</div>
+    </section>
+    <section class="p3">
+            <h2>未來世界</h2>
+            <div class="p3main">
+   	  <div class="span_6"><img class="fade-right" src="./images/obj3.png" style=""/></div>
+            	<div class="span_6 contentText">
+                    <span>世界越來越方便，幾年前網路只能用來傳送小東西，現在呢?</span><br>
+                    <span>我們變得不再想走路，移動身子，就如同電影-瓦力 中的人類一樣</span><br>
+                    <span>在我們享受科技的當下，也應注意人際互動與身體健康</span>
+                </div>
+            </div>
+    </section>
+	<footer>
+   	  <div class="iconbar"></div>
+      <div class="footer-content">
+          <a herf="#" class="gotop">></a>
+      </div>
+</footer>
+</body>
+</html>

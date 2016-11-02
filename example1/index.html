@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>無標題文件</title>
+<link href="main.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+</head>
+	<header>
+    	<nav>
+        	<ul class="topbar">
+            	<li class="lefticon">icon</li>
+                <li class="topbarItem">Contact</li>
+            	<li class="topbarItem">Partners</li>
+                <li class="topbarItem">Foods</li>
+                <li class="topbarItem">Menu</li>
+                <li class="topbarItem" style="color:#77530e">Home</li>
+                <span class="activetab" style="right:350px"><span>
+            </ul>
+            ulli
+        </nav>
+        <div class="viewheader">
+        	<i class="icon faddown_animation">87</i>
+        	<h1 class="fadup_animation">Best Place For Delicious Pizza And Coffee</h1>
+            <h2 class="fadtoright_animation">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+            <a href="#" class="scrollBtn">Down</a>
+        </div>
+    </header>
+    <main>
+    	<section class="main">
+        	<h3>Creative photographers of London</h3>
+            <div class=" clearfixed">
+                <article>
+                    <h4>Introduction</h4>
+                    <p>
+                        Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs, lead by passionate and uber progressive team that lives and breathes design. Creative digital agency for sleek and sophisticated solutions for mobile, websites and software designs.
+                    </p>
+                    <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    </p>
+                </article>
+                <article>
+                    <h4>Menu</h4>
+                    <ul class="menuicon">
+                        <li class="menuiconItem"> Tea & Coffee</li>
+                        <li class="menuiconItem"> Firewood Pizza and Spaghetti</li>
+                        <li class="menuiconItem"> Beers & Cocktails</li>
+                        <li class="menuiconItem"> Fine Dinner</li>
+                        <li class="menuiconItem"> Bakery</li>
+                    </ul>
+                </article>
+        	</div>
+        </section>
+        <section class="imgspace clearfixed">
+        	<figure>
+                <img src="img/1.jpg">
+                <figcaption>
+                	<h4>Cappuchino</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+            <figure>
+            	<img src="img/2.jpg">
+                <figcaption>
+                	<h4>Latte</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+            <figure>
+            	<img src="img/3.jpg">
+                <figcaption>
+                	<h4>Ambience</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+            <figure>
+            	<img src="img/4.jpg">
+                <figcaption>
+                	<h4>Fruits</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+            <figure>
+            	<img src="img/5.jpg">
+                <figcaption>
+                	<h4>Breakfast</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+            <figure>
+            	<img src="img/6.jpg">
+                <figcaption>
+                	<h4>Kitchen</h4>
+                    <p classs="showcontnet">Lorem Ipsum is simply dummy<br>
+                    	<a href="">view more</a>
+                    </p>
+                </figcaption>
+            </figure>
+        </section>
+        <section class="people">
+        	<article>
+            	<h4>Some of our happy customers</h4>
+                <section>
+                    <img src="img/1p.jpg">
+                	<article>
+                    	<p>
+                        	I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness.
+
+Angel Smith - eshop Canada
+                        </p>
+                    </article>
+                </section>
+            </article>
+            <article>
+            	<h4>Our Chefs</h4>
+                <p>Our chefs that is making everything possible</p>
+                   <ul class="photoList">
+                        <li class="photoItem"><a></a></li>
+                        <li class="photoItem"><a></a></li>
+                        <li class="photoItem"><a></a></li>
+                        <li class="photoItem"><a></a></li>
+        			</ul>
+            </article>	
+        </section>
+    </main>
+    <footer>
+    	<ul class="iconBar">
+            <li class="iconItem"><a></a></li>
+            <li class="iconItem"><a></a></li>
+            <li class="iconItem"><a></a></li>
+            <li class="iconItem"><a></a></li>
+            <li class="iconItem"><a></a></li>
+        </ul>
+    </footer>
+<script>
+	var a = document.querySelectorAll('.topbarItem');
+	var b = document.querySelector('.activetab');
+	a[0].onclick = function(e){
+		b.style.right = "30px";
+		cl(0);
+	};
+	a[1].onclick = function(){
+		b.style.right = "110px";
+		cl(1);
+	};
+	a[2].onclick = function(){
+		b.style.right = "190px";
+		cl(2);
+	};
+	a[3].onclick = function(){
+		b.style.right = "270px";
+		cl(3);
+	};
+	a[4].onclick = function(){
+		b.style.right = "350px";
+		cl(4);
+	};
+	function cl(that){
+		a.forEach((item,index) => {
+			item.style.color = index === that?"#77530e":"#999";
+		})
+	}
+	$('.scrollBtn').click(function(){
+		$("html, body").animate({ 
+			scrollTop: document.querySelector('main').offsetTop - document.querySelector('nav').scrollHeight},
+			 600
+		 );
+	});
+</script>
+<body>
+</body>
+</html>

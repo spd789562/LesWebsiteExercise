@@ -1,0 +1,329 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>夜市好好玩</title>
+<link href="main.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<script>
+	$(() => {
+		var $navlink = $('.navlink'),
+			$body = $('body, html');
+		var $plist = [
+			$('.p1'),$('.p2'),$('.p3'),$('.p4'),$('.p5')
+		];
+		$navlink.live('click', function(){
+			$body.animate({scrollTop:$(`.p${this.dataset.rank}`).get(0).offsetTop-50},1000)
+		});
+		$('.scrollBtn').live('click', function(){
+			$body.animate({scrollTop:$('.p1').get(0).offsetTop-50},1000)
+		});
+		function spananimation(el){
+			$(`${el} p span`).each(function(index){
+    			$(this).delay(300*index).queue(function(){$(this).addClass('start')})
+			})
+		}
+		function imganimation(el){
+			$(`${el} img`).each(function(index){
+    			 $(this).delay(700*index).queue(function(){$(this).addClass('start')})
+			})
+		}
+		function mappoint(){
+			$('.pointball').each(function(index){
+    			 $(this).delay(500*index).queue(function(){$(this).addClass('start')})
+			})
+		}
+		document.addEventListener('scroll',function(){
+			$('nav header').css('margin-top',-1*window.scrollY);
+			if(false){
+				
+			}else if(window.scrollY >= $plist[4][0].offsetTop-150){
+				imganimation('.p5')
+				spananimation('.p5');
+				$('.p5 .animationbar').addClass('start');
+			}else if(window.scrollY >= $plist[3][0].offsetTop-50){
+				imganimation('.p4')
+				spananimation('.p4');
+				$('.p4 .animationbar').addClass('start');
+			}else if(window.scrollY >= $plist[2][0].offsetTop-50){
+				imganimation('.p3')
+				spananimation('.p3');
+				$('.p3 .animationbar').addClass('start');
+			}else if(window.scrollY >= $plist[1][0].offsetTop-50){
+				mappoint()
+				spananimation('.p2');
+				$('.p2 .animationbar').addClass('start');
+			}else if(window.scrollY >= $plist[0][0].offsetTop-50){
+				spananimation('.p1');
+				$('.p1 img,.p1 .woodbd,.p1 .animationbar').addClass('start');
+				$('nav').addClass('show');
+			}else if(window.scrollY <= $plist[0][0].offsetTop-50){
+				$('nav').removeClass('show');
+			}
+		})
+	});
+</script>
+</head>
+<main>
+	<nav>
+    	<ul>
+        	<li data-link="5"><a href="#" class="navlink" data-rank="1">各地夜市</a></li>
+            <li data-link="4"><a href="#" class="navlink" data-rank="2">夜市介紹</a></li>
+            <li data-link="3"><a href="#" class="navlink" data-rank="3">夜市好玩</a></li>
+            <li data-link="2"><a href="#" class="navlink" data-rank="4">夜市好吃</a></li>
+            <li data-link="1"><a href="#" class="navlink" data-rank="5">夜市導覽</a></li>
+        </ul>
+    </nav>
+    <header>
+    	<div class="">
+    		<h1>台灣夜市 YES!</h1>
+        	<span class="headerspan">Easy Go!</span>
+        	<span class="headerspan">Come to join us now!</span>
+    		<a class="scrollBtn" role="button"><span>>></span></a>
+        </div>
+    </header>
+    <div class="banner p1">
+        <div class="container">
+			<div class="row">
+    	    	<div class="span-8">
+                <h2>夜市介紹<br><span>YES <br>Introduction<span></h2>
+                <div class="animationbar" style="background-color:#F90;"></div>
+                <p>
+                    <span>在以前，夜市通常是沒那麼有錢的人在去的地方</span><br/>
+                    <span>大部分東西都很便宜，如衣服、食物等</span><br/>
+                    <span>隨著時代演變，夜市也漸漸變成許多人開業之地</span><br/>
+                    <span>人潮也愈來愈多，甚至成為了觀光景點</span><br/>
+                    <span>根據交通部觀光局「2014 年來臺旅客消費及動向調查」</span><br/>
+                    <span>來台旅客最常去的第一名，就是夜市</span><br/>
+                    <span>到這等不及想知道夜市有什麼了對吧?趕快跟著我一起了解吧!</span></p> 
+                </p></div>
+        		<div class="span-4" style="position:relative;">
+                	<div class="woodbd"></div>
+            		<img src="images/g2055.jpg" alt="夜市intro" class="bdr bd bxsd " width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="p2">
+ 		<div class="container">
+			<div class="row">
+    	    	<div class="span-5">
+                <img src="images/taiwan.png" alt="台灣圖" class="bdr bd bxsd " width="100%" height="100%">
+                	<div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                </div>
+               
+        		<div class="span-7">
+            		<h2 class="tar">各地夜市　<br>YES Map</h2>
+                    <div class="animationbar" style="background-color:#00c896;"></div>
+                <p>
+                	<span class="tal">台灣各地都藏著夜市</span><br/>
+                	<span class="tac">不知道哪邊有夜市嗎?</span><br/>
+                    <span class="tar">就讓我來告訴你吧~</span><br/>
+                </p>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p3">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4">
+                	
+               <div class="span-12 imghoverscale"><img src="images/eat1.jpg" alt="玩樂器材1" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/eat2.jpg" alt="玩樂器材2" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/eat3.jpg" alt="玩樂器材3" class="" width="100%" height="100%"></div>
+               </div>
+               
+        		<div class="span-8">
+            		<h2 class="tar">夜市好好吃<br>　YES so yaming</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p class="tar">
+                	<span>夜市中最不缺的就是美食了</span><br/>
+                    <span>從最常看到的蚵仔煎、臭豆腐、碗糕</span><br/>
+                    <span>到傳統的肉燥飯、滷味、乾麵、豆花</span><br/>
+                    <span>還有小朋友最愛的糖葫蘆</span><br/>
+                    <span>真的是應有盡有呢~</span><br/>
+                </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p4">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4" style="float:right">
+               <div class="span-12 imghoverscale"><img src="images/play1.jpg" alt="玩樂器材1" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/play2.jpg" alt="玩樂器材2" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/play3.jpg" alt="玩樂器材3" class="" width="100%" height="100%"></div></div>
+               
+        		<div class="span-8" >
+            		<h2 class="tal">夜市好好玩　<br>YES so happy</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p>
+                	<span>夜市不僅僅有很多吃的</span><br/>
+                    <span>能遊玩的東西也很多呢~</span><br/>
+                    <span>像是彈珠檯<br>看著彈出去的小鋼珠在盤裡撞來撞去，分數夠還能拿獎品呢!</span><br/>
+                    <span>還有射氣球<br>有的是拿槍、有的是拿飛鏢，我自己最愛玩飛鏢了，就算射不到也玩得很盡興</span><br/>
+                    <span>當然還有最經典的套圈圈拉<br>套到就是你的!如果目標很後面的話，難度很高呢~</span><br/>
+                </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p5">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4">
+                 <div class="span-12"><img src="images/eat_play1.jpg" alt="玩樂器材1" class="bdr bd bxsd " width="100%" height="100%"></div>
+                	<div class="span-12"><img src="images/eat_play2.jpg" alt="玩樂器材2" class="bdr bd bxsd " width="100%" height="100%"></div>
+                	<div class="span-12"><img src="images/eat_play3.jpg" alt="玩樂器材3" class="bdr bd bxsd " width="100%" height="100%"></div></div>
+               
+        		<div class="span-8">
+            		<h2 class="tar">夜市導覽<br> Yes Navigate</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p class="tar"><span>如果不怕肥胖的話</span><br><span>我很推薦邊玩邊吃</span><br><span>並且由外圈到內圈</span><br><span>這樣才可以享受整個夜市</span></p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</main>
+<nav class="blurbar">
+
+ <header>
+    	<div class="">
+    		<h1>台灣夜市 YES!</h1>
+        	<span class="headerspan">Easy Go!</span>
+        	<span class="headerspan">Come to join us now!</span>
+    		<a class="scrollBtn" role="button"><span>>></span></a>
+        </div>
+    </header>
+    <div class="banner p1">
+        <div class="container">
+			<div class="row">
+    	    	<div class="span-8">
+                <h2>夜市介紹<br><span>YES <br>Introduction<span></h2>
+                <div class="animationbar" style="background-color:#F90;"></div>
+                <p>
+                    <span>在以前，夜市通常是沒那麼有錢的人在去的地方</span><br/>
+                    <span>大部分東西都很便宜，如衣服、食物等</span><br/>
+                    <span>隨著時代演變，夜市也漸漸變成許多人開業之地</span><br/>
+                    <span>人潮也愈來愈多，甚至成為了觀光景點</span><br/>
+                    <span>根據交通部觀光局「2014 年來臺旅客消費及動向調查」</span><br/>
+                    <span>來台旅客最常去的第一名，就是夜市</span><br/>
+                    <span>到這等不及想知道夜市有什麼了對吧?趕快跟著我一起了解吧!</span></p> 
+                </p></div>
+        		<div class="span-4" style="position:relative;">
+                	<div class="woodbd"></div>
+            		<img src="images/g2055.jpg" alt="夜市intro" class="bdr bd bxsd " width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="p2">
+ 		<div class="container">
+			<div class="row">
+    	    	<div class="span-5">
+                <img src="images/taiwan.png" alt="台灣圖" class="bdr bd bxsd " width="100%" height="100%">
+                	<div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                    <div class="pointball bdr"></div>
+                </div>
+               
+        		<div class="span-7">
+            		<h2 class="tar">各地夜市　<br>YES Map</h2>
+                    <div class="animationbar" style="background-color:#00c896;"></div>
+                <p>
+                	<span class="tal">台灣各地都藏著夜市</span><br/>
+                	<span class="tac">不知道哪邊有夜市嗎?</span><br/>
+                    <span class="tar">就讓我來告訴你吧~</span><br/>
+                </p>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p3">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4">
+                	
+               <div class="span-12 imghoverscale"><img src="images/eat1.jpg" alt="玩樂器材1" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/eat2.jpg" alt="玩樂器材2" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/eat3.jpg" alt="玩樂器材3" class="" width="100%" height="100%"></div>
+               </div>
+               
+        		<div class="span-8">
+            		<h2 class="tar">夜市好好吃<br>　YES so yaming</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p class="tar">
+                	<span>夜市中最不缺的就是美食了</span><br/>
+                    <span>從最常看到的蚵仔煎、臭豆腐、碗糕</span><br/>
+                    <span>到傳統的肉燥飯、滷味、乾麵、豆花</span><br/>
+                    <span>還有小朋友最愛的糖葫蘆</span><br/>
+                    <span>真的是應有盡有呢~</span><br/>
+                </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p4">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4" style="float:right">
+               <div class="span-12 imghoverscale"><img src="images/play1.jpg" alt="玩樂器材1" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/play2.jpg" alt="玩樂器材2" class="" width="100%" height="100%"></div>
+                	<div class="span-12 imghoverscale"><img src="images/play3.jpg" alt="玩樂器材3" class="" width="100%" height="100%"></div></div>
+               
+        		<div class="span-8" >
+            		<h2 class="tal">夜市好好玩　<br>YES so happy</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p>
+                	<span>夜市不僅僅有很多吃的</span><br/>
+                    <span>能遊玩的東西也很多呢~</span><br/>
+                    <span>像是彈珠檯<br>看著彈出去的小鋼珠在盤裡撞來撞去，分數夠還能拿獎品呢!</span><br/>
+                    <span>還有射氣球<br>有的是拿槍、有的是拿飛鏢，我自己最愛玩飛鏢了，就算射不到也玩得很盡興</span><br/>
+                    <span>當然還有最經典的套圈圈拉<br>套到就是你的!如果目標很後面的話，難度很高呢~</span><br/>
+                </p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="p5">
+    	<div class="container">
+			<div class="row">
+    	    	<div class="span-4">
+                 <div class="span-12"><img src="images/eat_play1.jpg" alt="玩樂器材1" class="bdr bd bxsd " width="100%" height="100%"></div>
+                	<div class="span-12"><img src="images/eat_play2.jpg" alt="玩樂器材2" class="bdr bd bxsd " width="100%" height="100%"></div>
+                	<div class="span-12"><img src="images/eat_play3.jpg" alt="玩樂器材3" class="bdr bd bxsd " width="100%" height="100%"></div></div>
+               
+        		<div class="span-8">
+            		<h2 class="tar">夜市導覽<br> Yes Navigate</h2>
+                    <div class="animationbar" style="background-color:#f90;"></div>
+                <p class="tar"><span>如果不怕肥胖的話</span><br><span>我很推薦邊玩邊吃</span><br><span>並且由外圈到內圈</span><br><span>這樣才可以享受整個夜市</span></p> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+</nav>
+<body>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>人口危機</title>
+<link href="main.css" rel="stylesheet" type="text/css">
+<script src="jquery-1.6.4.min.js"></script>
+<script>
+(function() {
+  var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+  window.requestAnimationFrame = requestAnimationFrame;
+})();
+var scrollobj
+	$(function(){
+		//$('.fade-up,.fade-bottom,.fade-right,.fade-left').addClass('start');
+		var $bar = $('.movebar'),
+			$body = $('body, html'),
+			$nav = $('nav');
+		var isdone = true;
+		function startdrow(callback){
+			if (!isdone)requestAnimationFrame(startdrow)
+			if (typeof callback === 'function')callback();
+		}
+		function factory(maxnum){
+			var index = 0;
+			return {
+				setindex: function setindex(num){ 
+					index = num;
+					startdrow(this.run.bind(this));
+				},
+				next: function addindex(){
+					index = index === maxnum ? index: index+1;
+					startdrow(this.run.bind(this));
+				},
+				prev: function addindex(){
+					index = index === 0 ? index: index-1;
+					startdrow(this.run.bind(this));
+				},
+				run: function runanimation(){
+					index === 0 ? $nav.removeClass('d'):$nav.addClass('d');
+					var val = (index-1) * 150;
+					val < 0 ?$bar.css('left',0):$bar.css('left',val+'px');
+					var scrollelement = index === 0? 'header' : '.p'+index;
+					$body.animate({scrollTop: $(scrollelement).offset().top - 80},1500);
+					//window.scrollTo({'behavior': 'smooth', 'top': $(scrollelement).offset().top})
+					$('.start').each(function(index){
+						$(this).toggleClass('start')
+					})
+					$(scrollelement+' .fade-left,' + scrollelement+' .fade-right').addClass('start')
+					$(scrollelement+' .fade-up').each(function(index,el){
+						setTimeout(function(){
+							$(el).addClass('start')
+						},index*100)
+					})
+				}
+			};
+		}
+		scrollobj = factory(5)
+		$body.live('mousewheel', function(e){
+			if(isdone){
+				isdone = false;
+				//test
+				/*if(e.wheelDelta /120 > 0){
+					scrollobj.prev()
+				}
+				else{
+					scrollobj.next()
+				}*/
+				scrollobj[e.wheelDelta /120 > 0 ? 'prev' : 'next']();
+				setTimeout(function(){
+					isdone = true
+				},1500);
+			}
+		});
+		$('a').live('click', function(){
+			scrollobj.setindex(this.dataset.toggle)
+		});
+	});
+</script>
+</head>
+<body>
+<nav class="cl">
+	<ul>
+    	<li><a href="##" data-toggle="1">都市化</a></li>
+        <li><a href="##" data-toggle="2">少子化</a></li>
+        <li><a href="##" data-toggle="3">高齡化</a></li>
+        <li><a href="##" data-toggle="4">照護壓力</a></li>
+        <li><a href="##	" data-toggle="5">免於危機</a></li>
+        <div class="movebar" style="left:0"></div>
+    </ul>
+</nav>
+<header>
+	<h1>人口危機</h1>
+    <p>台灣人口正陷入危機，你知道嗎?</p>
+    <p></p>
+</header>
+<section class="p1 downtag">
+	<div class="container">
+    	<div class="row">
+			<div class="col-6 push-right">
+            	<h2 class="tar">都市化</h2>
+            	<img src="images/obj1.jpg" alt="競爭" class="imgres imgbd fade-right ts2s"/>
+            </div>
+        	<div class="col-6">
+            	<p class="content-text">
+                    <span class="fade-up">隨著經濟進步</span>
+                    <span class="fade-up">越來越多人踏入都市</span>
+					<span class="fade-up">從小父母總是說</span>
+                    <span class="fade-up">要好好讀書才能進大都市</span>
+					<span class="fade-up">相對於鄉村</span>
+                    <span class="fade-up">都市提供了大量的資源</span>
+					<span class="fade-up">與相對多的工作機會</span>
+					<span class="fade-up">以一個社會新鮮人來說</span>
+                    <span class="fade-up">都市再適合不過了</span>
+					<span class="fade-up">隨著都市擴展，都市也越來越多</span>
+					<span class="fade-up">但這樣真的是好事嗎?</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p2 downtag">
+	<div class="container">
+    	<div class="row">
+			<div class="col-6">
+            	<h2 class="tal">少子化</h2>
+            	<img src="images/obj4.jpg" alt="競爭" class="imgres imgbd fade-left ts2s"/>
+            </div>
+        	<div class="col-6">
+            	<p class="content-text">
+                    <span class="fade-up">為什麼踏入都市呢?</span>
+                    <span class="fade-up">不外乎就是賺錢</span>
+                    <span class="fade-up">那麼賺錢會導致什麼呢?</span>
+                    <span class="fade-up">時間都拿去賺錢了</span>
+                    <span class="fade-up">便不會考慮結婚生子這件事</span>
+                    <span class="fade-up">那如果不賺錢呢?</span>
+                    <span class="fade-up">結婚生子的經費該從何來?</span>
+                    <span class="fade-up">沒錯，就是因為沒有錢才要賺</span>
+                    <span class="fade-up">賺了才會沒時間</span>
+                    <span class="fade-up">沒時間便不會考慮其他事情</span>
+                    <span class="fade-up">陷入了這樣的惡性循環</span>
+                    <span class="fade-up">嬰兒變少可以說是必然的事情。</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p3 downtag">
+	<div class="container">
+    	<div class="row">
+			<div class="col-6 push-right">
+            	<h2 class="tal">高齡化</h2>
+            	<img src="images/obj5.jpg" alt="競爭" class="imgres imgbd fade-right ts2s"/>
+            </div>
+        	<div class="col-6">
+            	<p class="content-text">
+                   <span class="fade-up"> 對於沒有時間的年輕人</span>
+                    <span class="fade-up">更別說是對長輩的照護</span>
+                    <span class="fade-up">這也造就了孤單老人的存在</span>
+                   <span class="fade-up"> 且戰後時期的人口爆炸性增高</span>
+                   <span class="fade-up"> 到了現在也逐漸變老</span>
+                   <span class="fade-up"> 老人人口未來也將爆炸性增高</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p4 downtag">
+	<div class="container">
+    	<div class="row">
+			<div class="col-6">
+            	<h2 class="tal">照護壓力</h2>
+            	<img src="images/obj6.jpg" alt="競爭" class="imgres imgbd fade-left ts2s"/>
+            </div>
+        	<div class="col-6">
+            	<p class="content-text ">
+                    <span class="fade-up">若在這樣的狀況下</span><br>
+                    <span class="fade-up">人們仍選擇結婚生子</span><br>
+                    <span class="fade-up">結果究竟會如何呢?</span>
+                    <span class="fade-up">沒錯，要照顧小孩也要照顧老人</span><br>
+                    <span class="fade-up">這需要什麼?錢和時間啊!</span>
+                    <span class="fade-up">在可預見的未來</span>
+                    <span class="fade-up">每一個青壯年要扶養1~5個老人</span>
+                    <span class="fade-up">這群青壯年人口真有辦法負擔嗎?</span>
+                    <span class="fade-up">在少子化的狀況下</span>
+                    <span class="fade-up">越年輕的人未來負擔不就越重嗎?</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="p5 downtag">
+	<div class="container">
+    	<div class="row">
+			<div class="col-6 push-right">
+            	<h2 class="tal">免於危機</h2>
+            	<img src="images/obj7.jpg" alt="競爭" class="imgres imgbd fade-right ts2s"/>
+            </div>
+        	<div class="col-6">
+            	<p class="content-text">
+                    <span class="fade-up">這些問題終究來自於賺錢這件事</span>
+                    <span class="fade-up">那麼把照護老人當作工作就好不是</span>
+                    <span class="fade-up"> 照護老人的問題解決了</span>
+                    <span class="fade-up">但並無法阻止老人持續增多的問題</span>
+                    <span class="fade-up">青壯年也無意願生小孩</span>
+                    <span class="fade-up">這時政府就該出面了</span>
+                    <span class="fade-up">除了補助外，也應提供照護服務</span>
+                    <span class="fade-up">甚至是說調高薪資，</span>
+                    <span class="fade-up">讓父母不用花太多時間，以陪伴孩童</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer class="tac">&copy; 2016, Lin Yi Cun</footer>
+</body>
+</html>

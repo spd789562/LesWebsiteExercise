@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>情緒與壓力</title>
+<script src="jquery-1.6.4.min.js" type="text/javascript"></script>
+<link href="main.css" rel="stylesheet" type="text/css">
+<script>
+	$(function(){
+		var isdone = true,
+			$body = $('html, body');
+		$('textarea').val("");
+		function an(index){
+			$(`.p${index} .fade-up`).each((index, el) => {
+				setTimeout(() => {
+					$(el).addClass('start');
+				},200*index)
+			})
+		}
+		var abc = function(maxnum){
+			var index = 0;
+			return {
+				index: () => {return $(`.p${index}`).offset().top},
+				add: function(){if(index === maxnum){return;}index++;},
+				cut: function(){if(index === -1){index=0;return;}index--;},
+				addclass: () => {
+					an(index)
+					$(`.p${index} .fade-left`).delay(300).addClass('start');
+					$(`.p${index} .fade-right`).delay(300).addClass('start');
+				},
+				removeclass: () => {
+					$(`.p${index} .fade-up`).delay(300).removeClass('start');
+					$(`.p${index} .fade-left`).delay(300).removeClass('start');
+					$(`.p${index} .fade-right`).delay(300).removeClass('start');
+				}
+			};
+		};
+		var c = abc(5);
+		$body.live('mousewheel', function(e){
+			if(isdone){
+				isdone = false;
+				if(e.wheelDelta /120 > 0){
+					c.removeclass()
+					c.cut()
+					c.addclass()
+					$body.animate({scrollTop: c.index()},1000)
+				}
+				else{
+					c.removeclass()
+					c.add()
+					c.addclass()
+					$body.animate({scrollTop: c.index()},1000)
+				}
+				setTimeout(function(){
+					isdone = true
+				},1000);
+			}
+		});
+		$body.live('scroll', function(){
+			
+		});
+	});
+</script>
+</head>
+<body>
+	<nav>
+        <ul>
+            <li><a href="##">發現壓力</a></li>
+            <li><a href="##">面對壓力</a></li>
+            <li><a href="##">接受壓力</a></li>
+            <li><a href="##">釋放壓力</a></li>
+            <li><a href="##">與我分享</a></li>
+        </ul>
+    </nav>
+    <header class="p0">
+    	<h1>情緒與壓力</h1>
+        <p>被壓力弄得喘不過氣嗎?父母經常投予壓力嗎?老闆常提些很難的需求嗎?</p>
+        <a href="##">繼續了解</a>
+    </header>
+    <div class="p1full">
+ 	<div class="p1 container">
+    	<h2>發現壓力<br>Find pressure</h2>
+    	<div class="row">
+        	<div class="span-6">
+            	<p class="content-text">
+	                <span class="fade-up transition-1s">在發現壓力之前應該先找出壓力來源</span><br/>
+                    <span class="fade-up transition-1s">世界上壓力百百種</span><br/>
+                    <span class="fade-up transition-1s">可能是時間太少，可能是上頭要求的業績</span><br/>
+                    <span class="fade-up transition-1s">可能是作業太多，又或是老師太嚴厲</span><br/>
+                    <span class="fade-up transition-1s">適當的壓力可以讓自己更努力、進步</span><br/>
+                    <span class="fade-up transition-1s">但無論是何種事物造成的壓力</span><br/>
+                    <span class="fade-up transition-1s">過度的壓力可是會讓身體撐不住的</span><br/>
+                    <span class="fade-up transition-1s">看到這邊</span><br/>
+                    <span class="fade-up transition-1s">是否對自己的壓力來源有頭緒了呢?</span><br/>
+                </p>
+            </div>
+        	<div class="span-6"><img src="images/obj1.png" alt="壓力圖" class="bd bs img-res fade-right transition-2s"/></div>
+        </div>
+    </div></div>
+    <div class="p2full">
+ 	<div class="p2 container">
+    	<h2 class="tar">面對壓力<br>Face pressure</h2>
+    	<div class="row">
+        	<div class="span-6 push-right">
+            	<p class="content-text tar">
+                        <span class="fade-up transition-1s">應該去正視他</span><br/>
+                        <span class="fade-up transition-1s">去思考為何會有這樣的壓力</span><br/>
+                        <span class="fade-up transition-1s">以及壓力對自己的影響</span><br/>
+                        <span class="fade-up transition-1s">若壓力是適當的</span><br/>
+                        <span class="fade-up transition-1s">恭喜你，你的狀況非常好</span><br/>
+                        <span class="fade-up transition-1s">若壓力對自己造成了影響</span><br/>
+                        <span class="fade-up transition-1s">那麼就進入下一步吧~</span><br/>
+                </p>
+            </div>
+        	<div class="span-6"><img src="images/obj2.jpg" alt="壓力圖" class="bd bs img-res fade-left transition-2s"/></div>
+        </div>
+    </div></div>
+    <div class="p3full">
+ 	<div class="p3 container">
+    	    	<h2>接受壓力<br>Accept pressure</h2>
+    	<div class="row">
+        	<div class="span-6">
+            	<p class="content-text">
+                    	<span class="fade-up transition-1s">現在你知道了壓力來源</span><br/>
+                        <span class="fade-up transition-1s">也知道的壓力對自己的影響</span><br/>
+                        <span class="fade-up transition-1s">再來是什麼呢?</span><br/>
+                        <span class="fade-up transition-1s">沒錯，就是想辦法說服自己</span><br/>
+                        <span class="fade-up transition-1s">這個壓力對自己有益</span><br/>
+                        <span class="fade-up transition-1s">或是這個壓力對自己很重要</span><br/>
+                        <span class="fade-up transition-1s">將壓力合理化</span><br/>
+                        <span class="fade-up transition-1s">聽起來很沒用，不過真的這樣想時</span><br/>
+                        <span class="fade-up transition-1s">總會帶來意外的效果</span><br/>
+                </p>
+            </div>
+        	<div class="span-6"><img src="images/obj3.jpg" alt="壓力圖" class="bd bs img-res fade-right transition-2s" style="width:70%"/></div>
+        </div>
+    </div></div>
+    <div class="p4full">
+ 	<div class="p4 container">
+    
+    	<div class="row">
+	        <h2 class="tar">釋放壓力<br>escape pressure</h2>
+        	<div class="span-6 push-right">
+            	<p class="content-text tar">
+                   	<span class="fade-up transition-1s">若真的被壓力壓到喘不過氣</span><br/>
+                    <span class="fade-up transition-1s">那麼就暫停目前的事情</span><br/>
+                    <span class="fade-up transition-1s">深呼吸、喘口氣</span><br/>
+                    <span class="fade-up transition-1s">適度的休息，玩點小遊戲、洗冷水澡等</span><br/>
+                    <span class="fade-up transition-1s">或許你會認為</span><br/>
+                    <span class="fade-up transition-1s">休息是一件非常浪費時間的事</span><br/>
+                    <span class="fade-up transition-1s">但人終究是會累的生物</span><br/>
+                    <span class="fade-up transition-1s">持續加壓只會讓身體受不了</span><br/>
+                    <span class="fade-up transition-1s">進而導致身體狀況變差</span><br/>
+                </p>
+            </div>
+        	<div class="span-6"><img src="images/obj4.jpg" alt="壓力圖" class="bd bs img-res mt50 fade-left transition-2s"/></div>
+        </div>
+    </div></div>
+    <div class="p5full">
+    <div class="p5 container">
+    	<h2 class="tar">與我分享<br>share with me</h2>
+        <div class="span-6 push-right white">
+            	<p class="content-text tar">
+                	<label class="neme">
+                    	<span>名稱:</span>
+						<input/>
+					</label>
+                    <label class="title">
+                    	<span>想分享的事物:</span>
+						<input/>
+					</label>
+                    <label class="content">
+                    	<span>內容:</span>
+						<textarea type="textarea" placeholder="分享內容" value="">
+                        </textarea>
+					</label>
+                </p>
+            </div>
+        <div class="span-6 black">
+        	 <div class="content-text tal">
+                   <div class="neme">
+                    	<span>名稱:</span>
+						<p>54654</p>
+					</div>
+                    <div class="title">
+                    	<span>想分享的事物:</span>
+						<p>54654</p>
+					</div>
+                    <div class="content">
+                    	<span>內容:</span>
+						<p>
+                        4564654
+                        </p>
+					</div>
+             </div>
+        </div>
+    </div></div>
+</body>
+</html>
