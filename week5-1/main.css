@@ -35,6 +35,7 @@ nav > ul > .movebar{
 .p2:target ~ nav .movebar{left:300px;}
 .p3:target ~ nav .movebar{left:450px;}
 .p4:target ~ nav .movebar{left:600px;}
+.p5:target ~ nav .movebar{left:750px;}
 /*************************************/
 header{
 	display:flex;
@@ -85,25 +86,40 @@ header > button > span{
 	width:100%;
 }
 /*************************************/
-.p1, .p2, .p3, p4{
+.p1, .p2, .p3, p4, p5{
 	width:100%;
 }
 .p1 img, .p2 img, .p3 img, .p4 img{
 	margin:50px;
 	max-width:100%;
 }
-.p1 .inner, .p2 .inner, .p3 .inner, .p4 .inner{
+.p1 .inner, .p2 .inner, .p3 .inner, .p4 .inner, .p5 .inner{
 	color: #FFF;
 	height: 100vh;
 	width:100%;
 }
-.p1 .inner.fixed, .p2 .inner.fixed, .p3 .inner.fixed, .p4 .inner.fixed{
+.p1 .inner.fixed,
+.p2 .inner.fixed,
+.p3 .inner.fixed,
+.p4 .inner.fixed,
+.p5 .inner.fixed{
 	position:fixed;
 	left:0;top:0;width:50%;
 }
-.p1 .text-content, .p2 .text-content, .p3 .text-content, .p4 .text-content{
+.p1 .text-content,
+.p2 .text-content,
+.p3 .text-content,
+.p4 .text-content,
+.p5 .text-content{
 	width:100%;
 	max-width:480px;
+}
+.p1 .row .col-6:first-child,
+.p2 .row .col-6:first-child,
+.p3 .row .col-6:first-child,
+.p4 .row .col-6:first-child,
+.p5 .row .col-6:first-child{
+	padding:0;
 }
 .inner{
 	text-align:center;
@@ -126,12 +142,6 @@ h3{
 	margin:1em 0;
 }
 /*************************************/
-.p1{}
-.p1 .row{
-}
-.p1 .row .col-6:first-child{
-	padding:0;
-}
 .p1 .inner{
 	background:url(images/bg2.jpg) 0 / cover;
 }
@@ -139,9 +149,6 @@ h3{
 	background: url(images/objf1.png) no-repeat right center fixed
 }
 /*************************************/
-.p2 .row .col-6:first-child{
-	padding:0;
-}
 .p2 .inner{
 	background:url(images/bg3.jpg) 0 / cover;
 	width:50%;
@@ -152,9 +159,6 @@ h3{
 	background: url(images/objf2.png) no-repeat right center fixed
 }
 /*************************************/
-.p3 .row .col-6:first-child{
-	padding:0;
-}
 .p3 .inner{
 	background:url(images/bg4.jpg) 0 / cover;
 	width:50%;
@@ -164,9 +168,6 @@ h3{
 	background: url(images/objf2.png) no-repeat right center fixed
 }
 /*************************************/
-.p4 .row .col-6:first-child{
-	padding:0;
-}
 .p4 .inner{
 	background:url(images/bg5.jpg) 0 / cover;
 	width:50%;
@@ -176,12 +177,53 @@ h3{
 	background: url(images/objf2.png) no-repeat right center fixed
 }
 /*************************************/
+.p5 .inner{
+	background:url(images/bg6.jpg) 0 / cover;
+	width:50%;
+	position:absolute;
+}
+.p5 .fixobj{
+	background: url(images/objf1.png) no-repeat right center fixed
+}
+.p5 .space{
+	height: 300px;
+	weight:100%;
+}
+.p5 input{
+	border:1px solid #CCC;
+	border-radius:5px;
+	width:150px;
+	height:30px;
+	padding-left:10px;
+	margin-left:10px;
+}
+.p5 label{
+	display:block;
+	width:480px;
+	max-width:480px;
+}
+.p5 .name{
+	float:right;
+	font-size:1.8em;}
+.p5 button{
+	display:block;
+	height: 50px;
+	width:150px;
+	font-size:2em;
+	border:none;
+	background-color:#099;
+	color:#FFF;
+	margin:50px auto;
+	cursor:pointer
+}
+/*************************************/
 footer{
 	text-align:center;
 	padding: 20px;
 	position:relative;
 	z-index:999;
 	background-color:#FFF;
+	line-height: 55px;
 }
 
 /*************************************/

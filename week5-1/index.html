@@ -67,7 +67,7 @@
             </div>
         </div>
     </section>
-        <section class="p4 t"  id="p4">
+    <section class="p4 t"  id="p4">
         <div class="row">
             <div class="col-6">
             	<div class="inner">
@@ -84,6 +84,31 @@
             </div>
         </div>
     </section>
+        <section class="p5 t"  id="p5">
+        <div class="row">
+            <div class="col-6">
+            	<div class="inner">
+            		<h2>與我一同聯署</h2>
+                </div>
+            </div>
+            <div class="col-6 push-right fixobj">
+            	<div class="col-12">
+                	<h3>參與聯署</h3>
+                    <p class="text-content">　　大部分的電力來源，都會破壞環境，所以才出現了風力發電、太陽能發電、水力發電等綠色能源，一方面發電，一方面不會破壞環境，讓我們一起支持綠色能源的發展與生產，保護地球有你有我。<br><br>
+                    </p>
+                    <div class="space"></div>
+                    <label for="entername" >
+                    	<span>　　　發起人:林一村　</span>
+                        <span class="name">聯署人:<input type="text" placeholder="請輸入姓名..." id="entername"/></span>
+                        <span class="name">身分證:<input type="text" placeholder="請輸入身分證..." id="entersub"/></span>
+                        <span class="name">連絡電話:<input type="text" placeholder="請輸入連絡電話..." id="enterphone"/></span>
+                        <button>送出</button>
+                    </label><br/>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
     <footer>&copy; 2016 ,Lin Les</footer>
     <nav class="cl" style="background-color:transparent">
     	<ul>
@@ -92,6 +117,7 @@
             <li><a href="#p2" data-target="p2">發生原因</a></li>
             <li><a href="#p3" data-target="p3">暖化影響</a></li>
             <li><a href="#p4" data-target="p4">減少暖化</a></li>
+            <li><a href="#p5" data-target="p4">聯署行動</a></li>
             <div class="movebar"></div>
         </ul>
     </nav>
@@ -105,6 +131,8 @@
 		$in3 = $p3.children[0].children[0].children[0],
 		$p4 = document.getElementsByClassName('p4')[0],
 		$in4 = $p4.children[0].children[0].children[0],
+		$p5 = document.getElementsByClassName('p5')[0],
+		$in5 = $p4.children[0].children[0].children[0],
 		$footer = document.getElementsByTagName('footer')[0],
 		$nav = document.getElementsByTagName('nav')[0],
 		$body = $('body, html');
@@ -112,8 +140,13 @@
 		var tmp = window.scrollY;
 		if(null){
 			
-		} else if(window.scrollY >= ($p4.offsetTop-70)){
+		} else if(window.scrollY >= ($p5.offsetTop-70)){
+			$in5.classList.remove('fixed')
 			$in4.classList.remove('fixed')
+			$nav.style.backgroundColor = 'rgba(0,0,0,.8)'
+			changehash('#p5')
+		} else if(window.scrollY >= $p4.offsetTop){
+			$in4.classList.add('fixed')
 			$in3.classList.remove('fixed')
 			$nav.style.backgroundColor = 'rgba(0,0,0,.8)'
 			changehash('#p4')
@@ -160,6 +193,9 @@
 			//location.hash=target;
 		})
 		location.hash=target;
+	});
+	$('.p5 button').click(function(){
+		alert('感謝您的支持')
 	});
 </script>
 </body>
